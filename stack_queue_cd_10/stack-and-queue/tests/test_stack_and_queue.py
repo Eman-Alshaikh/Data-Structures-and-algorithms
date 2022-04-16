@@ -59,4 +59,53 @@ def test_empty_stack_raises_exception_stack():
     with pytest.raises(Exception):
         assert stak.pop()
 
- 
+ ###########################  queue  #####################3
+#Can successfully enqueue into a queue
+def test_enqueue_1():
+    q=Queue()
+    q.enqueue("eman")
+    assert q.rear.value=="eman"
+
+
+#Can successfully enqueue multiple values into a queue
+def test_enqueue_multiple():
+    q=Queue()
+    q.enqueue(10)
+    q.enqueue(20)
+    assert q.rear.value==20
+#Can successfully dequeue out of a queue the expected value
+def test_enqueue_multiple():
+    q=Queue()
+    q.enqueue(10)
+    q.dequeue()
+    q.enqueue(20)
+    assert q.front.value==20
+#Can successfully peek into a queue, seeing the expected value
+def test_peek_queue():
+    q=Queue()
+    q.enqueue(10)
+   
+    q.enqueue(20)
+    assert q.peek()==10
+#Can successfully empty a queue after multiple dequeues
+def test_empty_queue():
+    q=Queue()
+    q.enqueue(10)
+   
+    q.enqueue(20)
+    q.dequeue()
+    q.dequeue()
+    assert q.q_is_empty()==True
+#Can successfully instantiate an empty queue
+def test_instantiate_queue():
+    q=Queue()
+     
+    assert q.front==None
+    assert q.rear==None
+#Calling dequeue or peek on empty queue raises exception
+def test_empty_queu_raises_exception_stack():
+    q=Queue()
+    with pytest.raises(Exception):
+        assert q.peek()
+    with pytest.raises(Exception):
+        assert q.dequeue()
