@@ -1,48 +1,7 @@
 
 
+ 
 
-class PseudoQueue:
-
-
-    def __init__(self):
-        self.first_stack=Stack()
-        self.sec_stack=Stack()
-        self.front=None
-        self.rear=None
-
-
-    
-    def  enqueue (self,value):
-        """
-        Arguments: value
-        Inserts value into the PseudoQueue,
-         using a first-in, first-out approach.
-        """
-        self.first_stack.push(value)
-        self.rear=self.first_stack.top.value
-
-
-
-    def dequeue (self):
-        """
-        Arguments: none
-        Extracts a value from the PseudoQueue, 
-        using a first-in, first-out approach.h
-        """
-        if self.first_stack.top:
-            st1=self.first_stack
-            while not st1.is_empty():
-                self.sec_stack.push(st1.pop())
-
-            pop=self.sec_stack.pop()
-            self.front=self.sec_stack.top
-            self.first_stack=Stack()
-            st2=self.sec_stack
-            while not st2.is_empty():
-                self.first_stack.push(st2.pop())
-            return pop
-         
-########################################################################3
 
 class Node:
 
@@ -238,3 +197,36 @@ class Queue:
                         qnode=qnode.next
             
         return (result)
+
+
+
+if __name__== "__main__":
+    mystack=Stack()
+    mystack.push(1)
+    mystack.push(2)
+    mystack.push(3)
+    mystack.push(4)
+
+    # get the top of this stack :
+    print(mystack.peek())
+
+    # delete element from the stack :
+    mystack.pop()
+    print(mystack.peek())
+    print(mystack.display_stack())
+
+    ########## queue #########
+    q=Queue()
+    q.enqueue(10) 
+    print("add new front ",q.q_display())
+    q.enqueue("eman")
+    q.enqueue("20")
+    print(q.q_display())
+    q.dequeue()
+    print(q.q_display())
+
+        
+               
+ 
+
+ 
