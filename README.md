@@ -16,9 +16,15 @@
 |Code Challenge:Class 07:  Extending an Implementation| [the link ](data-structures-and-algorithms/single-linked-list/README_7.md)       |
 |Code Challenge:Class 08:  Zip two linked lists.| [the link ](single-linked-list/README_8.md)       |
 |Class 10: Stack and a Queue Implementation.| [the link ](stack_queue_cd_10/stack-and-queue)       |
-|Code Challenge: Class 11: Implement a Queue using two Stacks.| [the link ](stack/stack-and-queue/readme_11.md)       |
-|Code Challenge: Class 12: First-in, First out Animal Shelter.| [the link ](stack/stack-and-queue/README_12.md)       |
+|Code Challenge: Class 11: Implement a Queue using two Stacks.| [the link ](cd_11_stack-queue-pseudo/stack-queue-pseudo/README)       |
+|Code Challenge: Class 12: First-in, First out Animal Shelter.| [the link ](cd_12_stack-queue-animal-shelter/stack-queue-animal-shelter/README)       |
 |Code Challenge: Class 13: stack-queue-brackets.| [the link ]()       |
+|Code Challenge: Class 14: stack-queue-brackets.| [the link ]()       |
+|Code Challenge: Class 15: stack-queue-brackets.| [the link ](cd_15_tree/tree/README)       |
+|Code Challenge: Class 16: stack-queue-brackets.| [the link ](cd_16_max_tree/tree-max/README)       |
+|Code Challenge: Class 17: stack-queue-brackets.| [the link ](cd_17_tree-breadth-first/tree-breadth-first/README)       |
+
+
 
 
 
