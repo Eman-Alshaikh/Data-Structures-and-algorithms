@@ -28,3 +28,10 @@ Arguments: pref
 pref can be either "dog" or "cat"
 Return: either a dog or a cat, based on preference.
 If pref is not "dog" or "cat" then return null.
+
+## Whiteboard Process
+ ![]( )
+## Approach & Efficiency
+ the code satisfy O(n)  space and O(n) time complexity .
+## Solution
+![]( )

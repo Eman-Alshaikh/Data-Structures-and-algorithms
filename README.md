@@ -23,6 +23,7 @@
 |Code Challenge: Class 15: stack-queue-brackets.| [the link ](cd_15_tree/tree/README)       |
 |Code Challenge: Class 16: stack-queue-brackets.| [the link ](cd_16_max_tree/tree-max/README)       |
 |Code Challenge: Class 17: stack-queue-brackets.| [the link ](cd_17_tree-breadth-first/tree-breadth-first/README)       |
+|Code Challenge: Class 18: tree_fizz_buzz| [the link ](cd_18_tree-fizz-buzz/tree-fizz-buzz/README.md)       |
 
 
 
