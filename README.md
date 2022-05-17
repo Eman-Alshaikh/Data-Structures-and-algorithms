@@ -25,8 +25,10 @@
 |Code Challenge: Class 17: stack-queue-brackets.| [the link ](cd_17_tree-breadth-first/tree-breadth-first/README)       |
 |Code Challenge: Class 18: tree-fizz-buzz| [the link ](cd_18_tree-fizz-buzz/tree-fizz-buzz)       |
 |Code Challenge: Class 26: Insert-Sort| [the link ](cd_26_Insertion_Sort/Insert-Sort/README.md)       |
- 
+|Code Challenge: Class 18: tree_fizz_buzz| [the link ](cd_18_tree-fizz-buzz/tree-fizz-buzz/README.md)       |
 
+
+ 
 
 
 
