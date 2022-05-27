@@ -1,4 +1,4 @@
-from hash_table import __version__
+from cd_31 import __version__
 
 
 def test_version():
