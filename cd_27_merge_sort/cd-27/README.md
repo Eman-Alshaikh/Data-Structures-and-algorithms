@@ -3,6 +3,7 @@
 review the given Pseudocode , then trace the algorithm by stepping through the process with the provided sample array .
 
 ## Whiteboard Process
+the link for thw whiteboard : https://miro.com/app/board/uXjVO0UoyNI=/ 
 ![](27p.PNG)
 
 ## Approach & Efficiency
