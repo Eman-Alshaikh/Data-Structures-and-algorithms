@@ -41,3 +41,15 @@ Input	            Args	      Output
 Input	                   Output	         Internal State
 [5]->[10]->[15]->[20]	     20	             [5]->[10]->[15])
 [5]->[10]->[15]	             15             	[5]->[10]
+
+## Whiteboard Process
+<!-- Embedded whiteboard image -->
+![](11-p.PNG)
+
+## Approach & Efficiency
+<!-- What approach did you take? Why? What is the Big O space/time for this approach? -->
+
+
+## Solution
+<!-- Show how to run your code, and examples of it in action -->
+![](11.PNG)
