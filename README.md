@@ -27,7 +27,7 @@
 |Code Challenge: Class 26: Insert-Sort| [the link ](cd_26_Insertion_Sort/Insert-Sort/README)       |
 |Code Challenge: Class 27: Merge Sort| [the link ](cd_27_merge_sort/cd-27/README)       |
 |Code Challenge: Class 30: Hash Table Implementation| [the link ](cd_30_hashtable_implementation/cd-30/README)       |
-
+|Code Challenge: Class 31: repeated_word | [the link ](cd_31_repeated_word/repeated-word/README)       |
   
 
 
