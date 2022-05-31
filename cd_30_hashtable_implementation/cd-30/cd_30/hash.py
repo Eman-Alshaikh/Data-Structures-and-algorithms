@@ -1,19 +1,16 @@
-from  hash_table.linkedList import LinkedList
+from   cd_30.linkedlist  import LinkedList
 
 
-
-class HashTable(object):
-
+class HashTable:
 
     def __init__(self,size=1024):
         #size=1024
         self.size=size
         # map=[]
 
-        self.map=[None]*size
+        self.bucket=[None]*size
          
       
-
 
     def set(self,key,value):
         """
@@ -25,10 +22,9 @@ class HashTable(object):
 
         hashed_key=self.hash(key)
 
-        if not self.map[hashed_key]:
-            self.map[hashed_key]=LinkedList()
-        self.map[hashed_key].add((key,value))
-
+        if not self.bucket[hashed_key]:
+            self.bucket[hashed_key]=LinkedList()
+        self.bucket[hashed_key].add((key,value))
 
 
 
@@ -45,11 +41,10 @@ class HashTable(object):
         """
 
         hashed_key=self.hash(key)
-        if self.map[hashed_key]:
-            return self.map[hashed_key].get(key)[1]
+        if self.bucket[hashed_key]:
+            return self.bucket[hashed_key].get(key)[1]
         return "NULL"
  
-
 
     def contains (self,key):
         """
@@ -59,18 +54,26 @@ class HashTable(object):
         """
 
         hashed_key=self.hash(key)
-        if self.map[hashed_key]:
-            return self.map[hashed_key].includes(key)
+        if self.bucket[hashed_key]:
+            return self.bucket[hashed_key].includes(key)
 
         return False
-
 
     def keys(self):
         """
         Returns: Collection of keys
 
         """
-        
+
+        key_array=[]
+        for i in range (self.size):
+            if self.bucket[i]:
+                if len(self.bucket[i])>1:
+                    for j in range(len(self.bucket[i])):
+                        key_array.append(self.bucket[i][j][0])
+                else:
+                    key_array.append(self.bucket[i][0][0])
+        return key_array
     def hash(self,key):
         """
         Arguments: key
@@ -87,7 +90,6 @@ class HashTable(object):
         temp=sum_of_ascci*17
         hashed_key=temp%self.size
         return hashed_key
-
 
 
 
@@ -108,4 +110,5 @@ if __name__ == '__main__':
 
     
     
+
 
