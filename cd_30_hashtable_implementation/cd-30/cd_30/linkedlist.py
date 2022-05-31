@@ -1,20 +1,15 @@
 
-
-from os import curdir
-from turtle import circle
-
+ 
+ 
 
 class Node : 
-
 
     def __init__(self, value)  :
        
        self.value=value
        self.next=None
 
-
 class LinkedList:
-
 
     def __init__(self) :
         self.head=None
@@ -42,7 +37,6 @@ class LinkedList:
             self.head=new_node
         else:
             print("this LL has  a head")
-
 
     def includes(self,value):
         """
@@ -75,3 +69,4 @@ class LinkedList:
         
         else:
             print ("the key is not found")
+

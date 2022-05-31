@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "hash-table"
+name = "cd-30"
 version = "0.1.0"
 description = ""
 authors = ["Eman Al-Shaikh Hussain <engemanalsheikh@gmail.com>"]

@@ -16,7 +16,6 @@ Since we are able to hash our key and determine the exact location where our val
 <!-- Description of the challenge -->
 Implement a Hashtable Class with the 5 methods .
 
-
 ## Approach & Efficiency
 <!-- What approach did you take? Why? What is the Big O space/time for this approach? -->
 
@@ -43,4 +42,5 @@ the Hash Table has 5 methods :
       
 
          
+
 
