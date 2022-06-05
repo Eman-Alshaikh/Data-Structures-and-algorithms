@@ -27,6 +27,7 @@
 |Code Challenge: Class 28: Quick Sort| [the link ](cd_28_QuickSort/cd-28/README)       |
 |Code Challenge: Class 26: Insert-Sort| [the link ](cd_26_Insertion_Sort/Insert-Sort/README.md)       |
 |Code Challenge: Class 31: repeated word| [the link ](cd_31_repeated_word/repeated-word/README)       |
+|Code Challenge: Class 32:Find common values in 2 binary trees| [the link ](cd_32_tree-intersection/cd-32/README)       |
  
 
 
