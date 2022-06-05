@@ -24,6 +24,7 @@
 |Code Challenge: Class 16: stack-queue-brackets.| [the link ](cd_16_max_tree/tree-max/README)       |
 |Code Challenge: Class 17: stack-queue-brackets.| [the link ](cd_17_tree-breadth-first/tree-breadth-first/README)       |
 |Code Challenge: Class 18: tree-fizz-buzz| [the link ](cd_18_tree-fizz-buzz/tree-fizz-buzz)       |
+|Code Challenge: Class 28: Quick Sort| [the link ](cd_28_QuickSort/cd-28/README)       |
 |Code Challenge: Class 26: Insert-Sort| [the link ](cd_26_Insertion_Sort/Insert-Sort/README.md)       |
 |Code Challenge: Class 31: repeated word| [the link ](cd_31_repeated_word/repeated-word/README)       |
  
