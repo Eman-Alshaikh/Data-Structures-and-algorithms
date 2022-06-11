@@ -1,16 +1,18 @@
 
 
-from os import curdir
-from turtle import circle
-
-
 class Node : 
 
 
-    def __init__(self, value)  :
+    def __init__(self,data=None,next=None)  :
        
-       self.value=value
-       self.next=None
+       self.data=data
+       self.next=next
+
+    def getData(self):
+        return self.data
+
+    def getNext(self):
+        return self.next
 
 
 class LinkedList:
@@ -31,34 +33,41 @@ class LinkedList:
             
             current.next=node
 
-    def insert(self,value):
+    def insert(self,value=None):
         """
         add a value to the head of the linked list
 
         """
 
         new_node=Node(value)
-        if not self.head:
-            self.head=new_node
-        else:
-            print("this LL has  a head")
-
+        new_node.next=self.head
+        self.head=new_node
 
     def includes(self,value):
         """
         return True if the value is in the LL 
         and return FALSE if the the value is not in the LL 
         """
-
-        if self.head:
-            current=self.head
-            while current:
-                if current.value[0]==value:
+        current=self.head
+        
+        while current!=None:
+                if current.getData()==value:
                     return True
+                 
+                else : 
+                    current=current.getNext()
+        return False
+
+
+    def append(self,value):
+        node=Node(value)
+        current=self.head
+        if current==None:
+            self.head=node
+        else:
+            while current.next != None:
                 current=current.next
-            return False
-        else : 
-            print ("this linked list is empty , so please insert a value firstly ")
+            current.next=node
 
     
     def get(self,value):
