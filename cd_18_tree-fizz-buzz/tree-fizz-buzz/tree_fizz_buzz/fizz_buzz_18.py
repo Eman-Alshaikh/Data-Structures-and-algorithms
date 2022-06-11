@@ -1,60 +1,62 @@
 
 
-class _Node:
+class k_Node:
     def __init__(self,value):
         self.value=value
-        self.left=None
-        self.right=None
+        self.children=[ ]
+ 
+
+class k_aryTree: 
+    def __init__(self,root=None):
+        self.root=root
+
+    def fizz_buzz_tree(self):
+         fb_node_values=[]
+
+         if self.root:
+            fb_root=k_aryTree.fizz_buzz_tree(k_Node(self.root.value))
+            fizz_buzz_tree=k_aryTree(fb_root)
+
+         else:
+
+           return 'empty tree'
+         
+         def traverse(node):
+            fb_node_values.append(node.value)
+            new_node=k_Node(node.value)
+
+            for child in node.children:
+
+                new_child_node=k_aryTree.fizz_buzz_tree(k_Node(child.value))
+                new_node.children.append(new_child_node)
+
+            
+            if node==self.root:
+                print(' threshold 0 ')
+                for new_child in new_child.children:
+                    print(' threshold 1 ')
+                    fizz_buzz_tree.root.children.append(new_child)
+
+         traverse(self.root)
+         return fizz_buzz_tree, fb_node_values
 
 
-class BinaryTree: 
-    def __init__(self):
-        self.root=None
 
-    def add(self,value,root=None):
-        node= _Node(value)
-        root=root or self.root
-
-        if not root:
-            self.root=node
-            return
-
-        if value< root.value:
-            if root.left:
-                self.add(value,root.left)
-
-            else : 
-                root.left=node
         
-        if value>root.value:
-            if root.right:
-                self.add(value,root.right)
-            else : 
-                root.right=node
+
+   
+    @staticmethod
+    def fizz_buzz_fun(value):
+        if value%3==0 and value%5==0:
+            return "FizzBuzz"
+        if value%3==0:
+            return "Fizz"
+        if value%5==0:
+            return "Buzz"
+        value=str(value)
+        return value
 
 
-def fizz_buzz_tree(tree,root=None,action=None):
 
-    root=root or tree.root 
-    if not action:
-        action=fizz_buzz_fun
 
-    if root:
-        root.value=action(root.value)
-        if root.left:
-            fizz_buzz_tree(tree,root.left)
-        if root.right:
-            fizz_buzz_tree(tree,root.right)
-    else: 
-        return "this is an empty tree "
-    return tree
 
-def fizz_buzz_fun(value):
-    if value%3==0 and value%5==0:
-        return "FizzBuzz"
-    if value%3==0:
-        return "Fizz"
-    if value%5==0:
-        return "Buzz"
-    value=str(value)
-    return value
