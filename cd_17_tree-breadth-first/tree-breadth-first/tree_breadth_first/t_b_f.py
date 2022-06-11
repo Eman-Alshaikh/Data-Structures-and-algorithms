@@ -1,6 +1,10 @@
  
 
 
+from queue import Queue
+from typing_extensions import Self
+
+
 class Node : 
     """
      Node class that has properties for the value stored in the node,
@@ -76,7 +80,8 @@ class  BinaryTree:
 
 ############################# 17 ###################### 
 
-    def breadth_first(tree): 
+    def breadth_first(self,tree): 
+         
         q_list=[]
         values=[]
 
@@ -96,6 +101,7 @@ class  BinaryTree:
         return values
 
 
+ 
 
              
 
