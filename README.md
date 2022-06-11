@@ -22,7 +22,7 @@
 |Code Challenge: Class 14: stack-queue-brackets.| [the link ]()       |
 |Code Challenge: Class 15: stack-queue-brackets.| [the link ](cd_15_tree/tree/README)       |
 |Code Challenge: Class 16: stack-queue-brackets.| [the link ](cd_16_max_tree/tree-max/README)       |
-|Code Challenge: Class 17: stack-queue-brackets.| [the link ](cd_17_tree-breadth-first/tree-breadth-first/README)       |
+|Code Challenge: Class 17: Breadth-first Traversal.| [the link ](cd_17_tree-breadth-first/tree-breadth-first/README)       |
 
 
 
