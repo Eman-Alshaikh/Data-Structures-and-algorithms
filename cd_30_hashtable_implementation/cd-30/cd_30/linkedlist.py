@@ -57,7 +57,7 @@ class LinkedList:
     
     def get(self,value):
         """
-        return the value of a key
+        return the value of a key ...
         """
 
         if self.head:
