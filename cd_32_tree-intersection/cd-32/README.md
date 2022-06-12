@@ -3,16 +3,19 @@
 
 # Challenge Summary
 <!-- Description of the challenge -->
-Write a function called tree_intersection that takes two binary trees as parameters.
+Write a function called tree_intersection that takes two binary trees as parameters.and returns a list of the elements that both trees have in common.
+
 ## Whiteboard Process
 <!-- Embedded whiteboard image --->
 
-![](32.PNG)
+![](32_fixx.PNG)
 the link for whiteboard :
-https://miro.com/app/board/uXjVOvLcs2Y=/ 
+ https://miro.com/app/board/uXjVOt2gQyA=/ 
 
 ## Approach & Efficiency
-time = O(n)
-space=O(1)
+time = O(N)
+space=O(N)
 
- 
+## Solution
+
+![](fix_32ll.PNG)
