@@ -1,16 +1,14 @@
-from array import array
-
-from more_itertools import bucket
-from cd_33_left_join.hash import HashTable
+ 
+from left_join.hash import Hashtable
 
 
-def left_join(left,right):
+def left_join_fun(left,right):
       
       result=[]
 
 
-      for item in left._buckets :
-          if item: 
+      for bucket in left._buckets :
+          if bucket: 
                current=bucket.head
                while current:
                     left_column=[current.data[0],current.data[1]]

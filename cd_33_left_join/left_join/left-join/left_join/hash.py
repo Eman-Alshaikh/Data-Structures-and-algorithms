@@ -1,4 +1,4 @@
-from cd_33_left_join.linkedlist  import LinkedList
+from left_join.linked_list  import LinkedList
 
 
 
@@ -19,7 +19,7 @@ class Hashtable:
         index = primed % self._size
         return index
 
-    def set(self, key, value):
+    def add(self, key, value):
         hashed_key_index = self._hash(key)
         if not self._buckets[hashed_key_index]:
             self._buckets[hashed_key_index] = LinkedList()
