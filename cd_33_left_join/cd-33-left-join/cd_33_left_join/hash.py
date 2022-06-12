@@ -19,7 +19,7 @@ class Hashtable:
         index = primed % self._size
         return index
 
-    def add(self, key, value):
+    def set(self, key, value):
         hashed_key_index = self._hash(key)
         if not self._buckets[hashed_key_index]:
             self._buckets[hashed_key_index] = LinkedList()
