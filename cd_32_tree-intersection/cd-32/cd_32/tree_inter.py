@@ -1,198 +1,290 @@
-
-from cd_32.linked import LinkedList as LL
-
-class Node : 
-    """
-     Node class that has properties for the value stored in the node,
-     the left child node, 
-    and the right child node.
-    
-    """
-    def __init__(self,value=None,left=None,right=None) :
-        self.value=value
-        self.left=left
-        self.right=right
-
-
-class  BinaryTree:
-    """
-    Create a Binary Tree class
-    Define a method for each of the depth first traversals:
-    pre order
-    in order
-    post order which returns an array of the values, ordered appropriately.
-    """
-    def __init__(self,root=None) :
-        self.root=root
-
-    def pre_order(self):
-
-        values=[]
-
-        def walk(root):
-            if root is None:
-                return
-            if root : 
-                values.append(root.value)
-                walk(root.left)
-                walk(root.right)
-
-        walk(self.root)
-        return values
-
-    def in_order(self):
-
-        values=[]
-        if self.root==None:
-                return
-
-        def walk(node):
-            
-            if node :                
-                walk(node.left)
-
-                values.append(node.value)
-                walk(node.right)
-
-        walk(self.root)
-        return values
-
-    def post_order(self):
-
-        values=[]
-        if self.root==None:
-                return
-
-        def walk(node):
-            
-            if node :                
-                walk(node.left)
-                walk(node.right)
-                values.append(node.value)
-                
-
-        walk(self.root)
-        return values
-        
-class BinarySearchTree(BinaryTree):
-    """
-    Create a Binary Search Tree class
-    This class should be a sub-class (or your languages equivalent)
-    of the Binary Tree Class, with the following additional methods:
-    """
-
-    def add(self,value):
-        """
-        Arguments: value
-        Return: nothing
-        Adds a new node with that value in the correct location
-         in the binary search tree.
-        """
-        def walk(root):
-            if value<root.value:
-                if root.left is None:
-                    root.left=Node(value)
-                else : 
-                    walk(root.left)
-            else : 
-                if root.right is None:
-                    root.right=Node(value)
-                else:
-                    walk(root.right)
-        walk(self.root)
-
-
-    def contains(self,value):
-        """
-        Argument: value
-        Returns: boolean indicating whether or not the value is in the tree at least once.
-        """
-        def walk(root):
-            if root is None :
-                return False
-            elif root.value==value:
-                return True
-            elif value<root.value:
-                return walk(root.left)
-            else : 
-                return walk(root.right)
-             
-        return walk(self.root)
-
 class HashTable:
- 
-    def __init__(self,max_size=1024):
 
-          self.max_size=max_size
-          self.buckets=[LL() for _ in range(self.max_size)]
-          if type(max_size) is not int :
-              raise TypeError('max size must be integer')
-          if max_size<1:
-              raise ValueError('max size must be positive integer')
+    def __init__(self, length=1024):
+        self._length_of_hash_table = length
+        self._hash_table = [None] * self._length_of_hash_table
+
+    def add(self, key, value=None):
+        """
+        Takes key and value as arguements
+        Hashes the key; returns hash-index
+        Adds key/value pair to the HashTable at hash-index
+        Handles collisions
+        """
+        # hash the key and assign index
+        hashed_index = self._hash(key)
+        #check for collision
+        if not self._hash_table[hashed_index]:
+            # no collision
+            # create bucket at that index
+            self._hash_table[hashed_index] = Bucket()
+            # add the key/value to bucket at hashed_index
+
+        #when there is and is not a collision we will be adding to the bucket
+        node = Node(key, value)
+        self._hash_table[hashed_index].add(node)
+
+    def get(self, key):
+        """
+        Takes key as arguement
+        Hashes key; returns hash-index
+        Returns value from table at the hash-index
+        """
+        key_index = self._hash(key)
+        _includes_the_key = False
+        if self._hash_table[key_index]:
+            _includes_the_key = self._hash_table[key_index].includes(key)
+        if _includes_the_key:
+            return self._hash_table[key_index].return_value(key)
 
         
 
-    def _has_key(self,key):
-        if type(key) is not str : 
-            raise TypeError('KEY must be string')
-
-        sum =0
-        for char in key:
-            sum+= ord(char)
-        return sum % len(self.buckets)
-
-
-    def set (self,key,val):
-        self.buckets[self._has_key(key)].append({key:val})
-
-    def get (self ,key ):
-        current=self.buckets[self._has_key(key)].head
-        while current:
-            if key in current.val.keys():
-                return current.val[key]
-            current=current._next
-        return 'NULL'
-
-    def contains (self,key):
+    def contains(self, key):
         """
-        Arguments: key
-        Returns: Boolean, indicating if the key
-        exists in the table already.
+        Takes key as arguement
+        Returns boolean if key is already in HashTable
         """
+        key_index = self._hash(key)
+        if self._hash_table[key_index]:
+            return self._hash_table[key_index].includes(key)
+        return self._hash_table[key_index]
 
-        hashed_key=self.hash(key)
-        if self.bucket[hashed_key]:
-            return self.bucket[hashed_key].includes(key)
+    def _hash(self, key):
+        """
+        Takes key as arguement
+        Returns hash-index
+        """
+        #add ascii values of char together
+        sum_chars = 0
+        key = str(key)
+        for char in key: 
+            sum_chars += ord(str(char))
+        #Square the sum
+        square_sum = sum_chars**2
+        #Floor devide by the first ascii value in key
+        divide_square = square_sum // ord(key[0])
+        #Mod length of hash table and return
+        return (divide_square % self._length_of_hash_table)
 
+class Node:
+    """Object that stores key / value pairs in Hash Table"""
+    def __init__(self, key, value):
+        self.next = None
+        self.key = key
+        self.value = value
+
+class _Node:
+    """
+    Creates an instance of a node.
+    Has value, left, and right properties.
+    """
+    def __init__(self, value):
+        self.value = value
+        self.left = None
+        self.right = None
+        self.next = None
+
+class BinaryTree:
+    """
+    Creates an instance of a Binary tree.
+    Has a root property.
+    Has three methods: pre_order, in_order, and post_order.
+    """
+    def __init__(self):
+        self.root = None
+
+    def add(self, value):
+        node = _Node(value)
+
+        if not self.root:
+            self.root = node
+            return
+        
+        q = Queue()
+        q.enqueue(self.root)
+
+        while not q.is_empty():
+            current = q.dequeue()
+
+            if not current.left:
+                current.left = node
+                return
+            if not current.right:
+                current.right = node
+                return
+
+            q.enqueue(current.left)
+            q.enqueue(current.right)
+
+
+
+
+    def pre_order(self, root=None, arr=None):
+        """
+        Method that takes no parameters.
+        Returns an array of the values, ordered from the start, going far left, then finishing to the right.
+        """
+        try:
+            if arr == None:
+                arr = []
+
+            arr.append(root.value)
+
+            if root.left:
+                self.pre_order(root.left, arr)
+
+            if root.right:
+                self.pre_order(root.right, arr)
+            
+            return arr
+        except AttributeError:
+            return "A root element parameter is required. Please invoke the pre_order method with a root node as an arguement."
+
+    def post_order(self, root=None, arr=[]):
+        """
+        Method that takes no parameters.
+        Returns an array of the values, ordered starting from the far left, traversing to the top, then finishing to the right.
+        """
+        try:
+            if arr == None:
+                arr = []
+
+            if root.left:
+                self.post_order(root.left, arr)
+            
+            if root.right:
+                self.post_order(root.right, arr)
+            
+            arr.append(root.value)
+
+            return arr
+        except AttributeError:
+            return "A root element parameter is required. Please invoke the post_order method with a root node as an arguement."
+
+    def in_order(self, root=None, arr=[]):
+        """
+        Method that takes no parameters.
+        Returns an array of the values, ordered starting from the far left, traversing to the far right, then finishing to at the root.
+        """
+        try:
+            if arr == None:
+                arr = []
+
+            if root.left:
+                self.in_order(root.left, arr)
+            
+            arr.append(root.value)
+            
+            if root.right:
+                self.in_order(root.right, arr)
+            
+            return arr
+        except AttributeError:
+            return "A root element parameter is required. Please invoke the in_order method with a root node as an arguement."
+
+class Queue:
+    """
+    An instance of a Queue
+    Has a front property that points to the front of the queue
+    enqueue method takes a value and adds a node to the end of the queue (O(1))
+    dequeue method removes the front node of the queue, returns its value
+    peek method returns the value of the front node in the queue
+    is_empty method returns True or False if the queue is empty
+    """
+    def __init__(self, front=None):
+        self.front = front
+        self.end = None
+    
+    def enqueue(self, node):
+        if not self.front:
+            self.front = node
+        elif not self.end:
+            self.end = node
+        else:
+            self.end.next = node
+            self.end = node
+
+    def dequeue(self):
+        try:
+            first_node = self.front
+            self.front = first_node.next
+            first_node.next = None
+            return first_node
+        except AttributeError:
+            return None
+    def peek(self):
+        try:
+            return self.front.value
+        except AttributeError:
+            return None
+
+    def is_empty(self):
+        if self.front == None:
+            return True
+        else:
+            return False
+
+class Bucket:
+    """Bucket used at filled index in HashTable"""
+    """Has Three methods: add, includes, and return_value"""
+    def __init__(self):
+        self.head = None
+
+    def add(self, node):
+        """Adds a node to the end of the linked list"""
+        _next_node = None
+        if not self.head:
+            self.head = node
+            return
+
+        if self.head.next:    
+            _next_node = self.head.next
+        else:
+            self.head.next = node
+
+        while _next_node:
+            if not _next_node.next:
+                _next_node.next = node
+                break
+            _next_node = _next_node.next
+    
+    def includes(self, key):
+        """Determines if a given key is in the linked list"""
+        _next_node = self.head
+        while _next_node:
+            if _next_node.key == key:
+                return True
+            _next_node = _next_node.next
         return False
 
+    def return_value(self, key):
+        """Returns the value in a node at a given node with matching key"""      
+        _current_node = self.head
+        while _current_node:
+            if _current_node.key == key:
+                return _current_node.value
+            _current_node = _current_node.next
+        return None
 
-def tree_intersection(bt1,bt2):
+
+def tree_intersection(tree1,tree2):
+    list=[ ]
     ht=HashTable()
-    match_array=[]
-
-    def _tree(current):
-        ht.set(current.data,current.data)
-
-        if current.left:
-            _tree(current.left)
-
-        if current.right:
-            _tree(current.right)
-
-    def _tree_check(current):
-        if current:
-            if ht.contains(current.data):
-                match_array.append(current.data)
-            if current.left:
-                _tree_check(current.left)
-            
-            if current.right:
-                _tree_check(current.right)
-
-    _tree(bt1.root)
-    _tree_check(bt2.root)
-    return match_array
-
 
  
+    def recurse_traverse(node,second_tree):
+        if not node :
+            return
+        recurse_traverse(node.left,second_tree)
+        recurse_traverse(node.right,second_tree)
+        if second_tree:
+            if ht.contains(node.value):
+                list.append(node.value)
+        else:
+            ht.add(node.value)
+
+    recurse_traverse(tree1.root,False)
+    recurse_traverse(tree2.root,True)
+    return list
+
+         
