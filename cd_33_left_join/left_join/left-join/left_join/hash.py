@@ -1,4 +1,4 @@
-from cd_33_left_join.linkedlist  import LinkedList
+from left_join.linked_list  import LinkedList
 
 
 

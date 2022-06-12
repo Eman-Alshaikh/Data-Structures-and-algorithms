@@ -1,8 +1,8 @@
  
-from cd_33_left_join.hash import Hashtable
+from left_join.hash import Hashtable
 
 
-def left_join(left,right):
+def left_join_fun(left,right):
       
       result=[]
 
